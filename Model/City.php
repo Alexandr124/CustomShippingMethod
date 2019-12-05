@@ -35,4 +35,5 @@ class City extends AbstractModel implements CityInterface
     {
         // TODO: Implement setRef() method.
     }
+
 }

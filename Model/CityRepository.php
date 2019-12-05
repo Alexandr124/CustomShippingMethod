@@ -16,6 +16,7 @@ class CityRepository implements CityRepositoryInterface
     private $cityResource;
     protected $resourceModel;
     private $cityFactory;
+    private $citycollection;
 
     private $collectionFactory;
 
@@ -45,26 +46,20 @@ class CityRepository implements CityRepositoryInterface
         return $city;
     }
 
-    public function getList(SearchCriteriaInterface $searchCriteria)
-    {
 
+    public function getById($id)
+    {
+        $city = $this->cityFactory->create();
+        $this->cityResource->load($city, $id);
+        if (!$city->getId()) {
+            throw new NoSuchEntityException(__('City with id "%1" does not exist.', $id));
+        }
+        return $city;
     }
 
-//    private function convertCollectionToDataItemsArray(
-//        Collection $collection
-//    ) {
-//
-//        $examples = array_map(function (Index $city) {
-//            $dataObject = $this->cityDataFactory->create();
-//            $dataObject->setId($city->getId());
-//            $dataObject->setCityId($city->getCityId());
-//            $dataObject->setCityName($city->getCityName());
-//            $dataObject->setCityNameRu($city->getCityNameRu());
-//            $dataObject->setRef($city->getRef());
-//            return $dataObject;
-//        }, $collection->getItems());
-//        return $examples;
-//    }
+    public function getCollection(){
 
-
+        $collection =  $this->citycollection->getData();
+        return $collection;
+    }
 }

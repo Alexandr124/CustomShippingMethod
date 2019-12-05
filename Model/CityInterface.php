@@ -16,4 +16,6 @@ interface CityInterface
     public function setCityName($city_name);
 
     public function setRef($ref);
+
+
 }

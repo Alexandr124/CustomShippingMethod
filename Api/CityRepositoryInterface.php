@@ -9,5 +9,5 @@ interface CityRepositoryInterface
 
     public function save(\Vaimo\NovaPoshta\Model\CityInterface $request);
 
-    public function getList(SearchCriteriaInterface $searchCriteria);
+    public function getById($id);
 }
