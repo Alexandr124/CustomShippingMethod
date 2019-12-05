@@ -2,4 +2,8 @@
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="add_custom_field_checkout_form" type="Vaimo\NovaPoshta\Model\Plugin\Checkout\LayoutProcessor" sortOrder="100"/>
     </type>
+
+    <preference for="Vaimo\NovaPoshta\Api\CityRepositoryInterface"
+                type="Vaimo\NovaPoshta\Model\CityRepository" />
+
 </config>

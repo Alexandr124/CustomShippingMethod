@@ -2,7 +2,7 @@
     <body>
         <referenceContainer name="content">
 
-            <block class="Vaimo\NovaPoshta\Block\City" name="city" template="city.phtml" />
+            <block class="Vaimo\NovaPoshta\Block\Index" name="city" template="city.phtml" />
 
         </referenceContainer>
     </body>

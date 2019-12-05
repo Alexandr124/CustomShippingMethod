@@ -23,44 +23,19 @@ class InstallSchema implements InstallSchemaInterface
             ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
             'Id'
         )->addColumn(
-            'customer_first_name',
+            'city_name',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             255,
             [],
-            'First Name'
+            'Name of the city'
         )->addColumn(
-            'customer_last_name',
+            'ref',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             255,
             [],
-            'Last Name'
-        )->addColumn(
-            'customer_phone_number',
-            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-            255,
-            [],
-            'Phone Number'
-        )->addColumn(
-            'customer_comment',
-            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-            255,
-            [],
-            'Comment'
-        )->addColumn(
-            'quote_date',
-            \Magento\Framework\DB\Ddl\Table::TYPE_DATE,
-            255,
-            [],
-            'Date of receiving a quote'
-        )->addColumn(
-            'status',
-            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-            255,
-            ['default' => 'pending'],
-            'Quote Status'
-
+            'Reference'
         )->setComment(
-            'Table'
+            'Table with the Cities list'
         );
         $setup->getConnection()->createTable($table);
 
