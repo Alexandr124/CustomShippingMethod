@@ -40,8 +40,8 @@
                     <label>TestButton</label>
                 </field>
                 <field id="advanced_settings" translate="label" type="button" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Advanced Settings</label>
-                    <!--<frontend_model>Vaimo\NovaPoshta\Block\System\Config\Collect</frontend_model>-->
+                    <label>Synchronize with NP</label>
+                    <frontend_model>Vaimo\NovaPoshta\Block\System\Config\Button</frontend_model>
                 </field>
 
             </group>
