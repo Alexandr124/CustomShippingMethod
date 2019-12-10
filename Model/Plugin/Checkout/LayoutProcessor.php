@@ -25,24 +25,10 @@ class LayoutProcessor
         \Magento\Checkout\Block\Checkout\LayoutProcessor $subject,
         array  $jsLayout
     ) {
+
+
         $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['shipping-address-fieldset']['children']['delivery_date'] = [
-            'component' => 'Magento_Ui/js/form/element/abstract',
-            'config' => [
-                'customScope' => 'shippingAddress',
-                'template' => 'ui/form/field',
-                'elementTmpl' => 'ui/form/element/date',
-                'options' => [],
-                'id' => 'delivery-date'
-            ],
-            'dataScope' => 'shippingAddress.delivery_date',
-            'label' => 'Delivery Date',
-            'provider' => 'checkoutProvider',
-            'visible' => true,
-            'validation' => [],
-            'sortOrder' => 250,
-            'id' => 'delivery-date'
-        ];
+        ['shippingAddress']['component']='Vaimo_NovaPoshta/js/shipping/main';
 
         global $opt_val;
 
@@ -50,32 +36,72 @@ class LayoutProcessor
 
         for($i=0; $i<count($amount); $i++){
 
-            $opt_val['value'] = $amount[$i]["city_id"];
+            $opt_val['value'] = $amount[$i]["ref"];
             $opt_val['label'] = $amount[$i]["city_name"];
             $allOptions[] = $opt_val;
         }
 
+        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']
+        ['children']['shippingAddress']['children']['shipping-address-fieldset']
+        ['children']['city'] = [
+            'component' => 'Magento_Ui/js/form/element/select',
+            'config' => [
+                'customScope' => 'shippingAddress.city',
+                'template' => 'ui/form/field',
+                'elementTmpl' => 'ui/form/element/select',
+                'id' => 'city',
+            ],
+            'dataScope' => 'shippingAddress',
+            'label' => 'City',
+            'provider' => 'checkoutProvider',
+            'visible' => true,
+            'validation' => [],
+            'sortOrder' => 251,
+            'id' => 'city',
+            'options' =>  $allOptions
+        ];
+
 
         $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-        ['shippingAddress']['children']['shipping-address-fieldset']['children']['drop_down'] = [
-            'component' => 'Magento_Ui/js/form/element/select',
+        ['shippingAddress']['children']['shipping-address-fieldset']['children']['novaposhta_warehouse'] = [
+            'component' => 'Vaimo_NovaPoshta/js/shipping/warehouse',
             'config' => [
                 'customScope' => 'shippingAddress',
                 'template' => 'ui/form/field',
                 'elementTmpl' => 'ui/form/element/select',
                 'id' => 'drop-down',
             ],
-            'dataScope' => 'shippingAddress.drop_down',
-            'label' => 'Drop Down',
+            'dataScope' => 'shippingAddress.novaposhta_warehouse',
+            'label' => 'Warehouse',
             'provider' => 'checkoutProvider',
             'visible' => true,
             'validation' => [],
             'sortOrder' => 251,
-            'id' => 'drop-down',
-            'options' =>  $allOptions
+            'id' => 'novaposhta_warehouse',
         ];
 
+        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+        ['shippingAddress']['children']['shipping-address-fieldset']['children']['novaposhta_warehouse']
+        ['config']['elementTmpl'] = "Vaimo_NovaPoshta/shipping/warehouse";
 
+//        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+//        ['shippingAddress']['children']['shipping-address-fieldset']['children']['novaposhta_cities'] = [
+//            'component' => 'Magento_Ui/js/form/element/select',
+//            'config' => [
+//                'customScope' => 'shippingAddress',
+//                'template' => 'ui/form/field',
+//                'elementTmpl' => 'ui/form/element/select',
+//                'id' => 'novaposhta_cities',
+//            ],
+//            'dataScope' => 'shippingAddress.novaposhta_cities',
+//            'label' => 'City',
+//            'provider' => 'checkoutProvider',
+//            'visible' => true,
+//            'validation' => [],
+//            'sortOrder' => 251,
+//            'id' => 'novaposhta_cities',
+//            'options' =>  $allOptions
+//        ];
 
 
         return $jsLayout;
