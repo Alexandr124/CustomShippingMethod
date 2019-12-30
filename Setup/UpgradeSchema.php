@@ -25,6 +25,33 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     'comment' => 'Original city id'
                 ]
             );
+
+        }
+
+        if (version_compare($context->getVersion(), '1.0.10', '<')) {
+            $setup->getConnection()->addColumn(
+                $setup->getTable('quote_address'),
+                'novaposhta_warehouse',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table ::TYPE_TEXT,
+                    'nullable' => true,
+                    'default' => NULL,
+                    'length' => 255,
+                    'comment' => 'Mob Type'
+                ]
+            );
+            $setup->getConnection()->addColumn(
+                $setup->getTable('sales_order_address'),
+                'novaposhta_warehouse',
+                [
+                    'type' => \Magento\Framework\DB\Ddl\Table ::TYPE_TEXT,
+                    'nullable' => true,
+                    'default' => NULL,
+                    'length' => 255,
+                    'comment' => 'Mob Type'
+                ]
+            );
+            $setup->endSetup();
         }
 
         $setup->endSetup();

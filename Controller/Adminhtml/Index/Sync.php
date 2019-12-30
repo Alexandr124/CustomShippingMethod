@@ -51,12 +51,12 @@ class Sync extends \Magento\Backend\App\Action
         if (property_exists($citiesApi, 'success') && $citiesApi->success === true) {
             $this->_syncWithDb($citiesApi->data);
             $this->messageManager->addSuccess(
-                __('Успешно синхронизировано')
+                __('Synchronized successfully')
             );
             $this->_redirect('novaposhta/city/index');
         } else {
             $this->messageManager->addError(
-                __('Новая почта не отвечет или отвечает не правльно')
+                __('Newpost is not responding or responding incorrectly')
             );
             $this->messageManager->addError($citiesApi->message);
             $this->_redirect('novaposhta/city/index');

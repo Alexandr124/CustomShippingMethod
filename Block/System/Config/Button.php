@@ -73,7 +73,7 @@ class Button extends Field
         )->setData(
             [
                 'id' => 'collect_button',
-                'label' => __('Collect Data'),
+                'label' => __('Synchronize'),
             ]
         );
 

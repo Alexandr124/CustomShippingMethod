@@ -4,6 +4,12 @@
             <action method="setTemplate">
                 <argument name="template" translate="true" xsi:type="string">Vaimo_NovaPoshta::order/view/info.phtml</argument>
             </action>
+            <block class="Vaimo\NovaPoshta\Block\Adminhtml\Order\View\AddressInfo" name="addressinfo" template="Vaimo_NovaPoshta::order/view/addressinfo.phtml" />
+        </referenceBlock>
+
+        <referenceBlock name="order_additional_info">
+            <block class="Vaimo\NovaPoshta\Block\Adminhtml\Order\View\AddressInfo" name="addressinfo" template="Vaimo_NovaPoshta::order/view/addressinfo.phtml" />
         </referenceBlock>
     </body>
 </page>
+

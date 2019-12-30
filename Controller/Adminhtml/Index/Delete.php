@@ -23,11 +23,11 @@ class Delete
 
         if($truncatetable !== FALSE)
         {
-            echo("All rows have been deleted.");
+            echo __("All rows have been deleted");
         }
         else
         {
-            echo("No rows have been deleted.");
+            echo __("No rows have been deleted");
         }
 
     }

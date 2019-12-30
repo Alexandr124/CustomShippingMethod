@@ -52,7 +52,7 @@ class CityRepository implements CityRepositoryInterface
         $city = $this->cityFactory->create();
         $this->cityResource->load($city, $id);
         if (!$city->getId()) {
-            throw new NoSuchEntityException(__('City with id "%1" does not exist.', $id));
+            throw new NoSuchEntityException(__('City with id "%1" does not exist', $id));
         }
         return $city;
     }

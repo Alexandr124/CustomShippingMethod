@@ -2,11 +2,11 @@
 namespace Vaimo\NovaPoshta\Block;
 
 use Magento\Framework\View\Element\Template;
-
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
-use Magegain\Novaposhta\Api\CityRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
+
+use Vaimo\NovaPoshta\Api\CityRepositoryInterface;
 
 class City extends \Magento\Framework\View\Element\Template
 {
@@ -45,7 +45,7 @@ class City extends \Magento\Framework\View\Element\Template
      * @param Context $context
      * @param PageFactory $resultPageFactory
      * @param CityRepositoryInterface $cityRepository
-     * @param \Magegain\Novaposhta\Model\CityFactory $cityFactory
+     * @param \Vaimo\NovaPoshta\Model\CityFactory $cityFactory
      * @param \Magento\Framework\HTTP\ZendClientFactory $httpClientFactory
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
@@ -56,7 +56,7 @@ class City extends \Magento\Framework\View\Element\Template
 //        Context $context,
         PageFactory $resultPageFactory,
         CityRepositoryInterface $cityRepository,
-        \Magegain\Novaposhta\Model\CityFactory $cityFactory,
+        \Vaimo\NovaPoshta\Model\CityFactory $cityFactory,
         \Magento\Framework\HTTP\ZendClientFactory $httpClientFactory,
         \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig

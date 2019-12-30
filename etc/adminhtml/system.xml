@@ -36,9 +36,6 @@
                 <field id="sort_order" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Sort Order</label>
                 </field>
-                <field id="test_button" translate="label" type="button" sortOrder="91" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>TestButton</label>
-                </field>
                 <field id="advanced_settings" translate="label" type="button" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Synchronize with NP</label>
                     <frontend_model>Vaimo\NovaPoshta\Block\System\Config\Button</frontend_model>

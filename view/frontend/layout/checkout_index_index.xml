@@ -22,36 +22,36 @@
                                                     <item name="company" xsi:type="array">
                                                             <item name="visible" xsi:type="boolean">false</item>
                                                     </item>
-                                                    <item name="select_field" xsi:type="array">
-                                                        <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
-                                                        <item name="config" xsi:type="array">
-                                                            <!--customScope is used to group elements within a single form (e.g. they can be validated separately)-->
-                                                            <item name="customScope" xsi:type="string">customCheckoutForm</item>
-                                                            <item name="template" xsi:type="string">ui/form/field</item>
-                                                            <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
-                                                        </item>
-                                                        <item name="options" xsi:type="array">
-                                                            <item name="0" xsi:type="array">
-                                                                <item name="label" xsi:type="string" translate="true">Please select value</item>
-                                                                <item name="value" xsi:type="string">value</item>
-                                                            </item>
-                                                            <item name="1" xsi:type="array">
-                                                                <item name="label" xsi:type="string" translate="true">Value 1</item>
-                                                                <item name="value" xsi:type="string">value_1</item>
-                                                            </item>
-                                                            <item name="2" xsi:type="array">
-                                                                <item name="label" xsi:type="string" translate="true">Value 2</item>
-                                                                <item name="value" xsi:type="string">value_2</item>
-                                                            </item>
-                                                        </item>
-                                                         <!--value element allows to specify default value of the form field -->
+                                                    <!--<item name="select_field" xsi:type="array">-->
+                                                        <!--<item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>-->
+                                                        <!--<item name="config" xsi:type="array">-->
+                                                            <!--&lt;!&ndash;customScope is used to group elements within a single form (e.g. they can be validated separately)&ndash;&gt;-->
+                                                            <!--<item name="customScope" xsi:type="string">customCheckoutForm</item>-->
+                                                            <!--<item name="template" xsi:type="string">ui/form/field</item>-->
+                                                            <!--<item name="elementTmpl" xsi:type="string">ui/form/element/select</item>-->
+                                                        <!--</item>-->
+                                                        <!--<item name="options" xsi:type="array">-->
+                                                            <!--<item name="0" xsi:type="array">-->
+                                                                <!--<item name="label" xsi:type="string" translate="true">Please select value</item>-->
+                                                                <!--<item name="value" xsi:type="string">value</item>-->
+                                                            <!--</item>-->
+                                                            <!--<item name="1" xsi:type="array">-->
+                                                                <!--<item name="label" xsi:type="string" translate="true">Value 1</item>-->
+                                                                <!--<item name="value" xsi:type="string">value_1</item>-->
+                                                            <!--</item>-->
+                                                            <!--<item name="2" xsi:type="array">-->
+                                                                <!--<item name="label" xsi:type="string" translate="true">Value 2</item>-->
+                                                                <!--<item name="value" xsi:type="string">value_2</item>-->
+                                                            <!--</item>-->
+                                                        <!--</item>-->
+                                                         <!--&lt;!&ndash;value element allows to specify default value of the form field &ndash;&gt;-->
 
-                                                        <item name="value" xsi:type="string">value_2</item>
-                                                        <item name="provider" xsi:type="string">checkoutProvider</item>
-                                                        <item name="dataScope" xsi:type="string">customCheckoutForm.select_field</item>
-                                                        <item name="label" xsi:type="string" translate="true">Select Field</item>
-                                                        <item name="sortOrder" xsi:type="string">2</item>
-                                                    </item>
+                                                        <!--<item name="value" xsi:type="string">value_2</item>-->
+                                                        <!--<item name="provider" xsi:type="string">checkoutProvider</item>-->
+                                                        <!--<item name="dataScope" xsi:type="string">customCheckoutForm.select_field</item>-->
+                                                        <!--<item name="label" xsi:type="string" translate="true">Select Field</item>-->
+                                                        <!--<item name="sortOrder" xsi:type="string">2</item>-->
+                                                    <!--</item>-->
                                                 </item>
                                             </item>
                                             <item name="shippingAdditional" xsi:type="array">
