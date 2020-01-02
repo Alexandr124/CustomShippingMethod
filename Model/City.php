@@ -13,27 +13,46 @@ use Magento\Framework\Model\AbstractModel;
 
 use Vaimo\NovaPoshta\Model\ResourceModel\City as ResourceModel;
 
+/**
+ * Class City
+ * @package Vaimo\NovaPoshta\Model
+ */
 class City extends AbstractModel implements CityInterface
 {
 
+    /**
+     *
+     */
     protected function _construct()
     {
         $this->_init(ResourceModel::class);
     }
 
+    /**
+     * @param $city_id
+     * @return City
+     */
     public function setCityId($city_id)
     {
-        // TODO: Implement setCityId() method.
+        return $this->setData('city_id', $city_id);
     }
 
+    /**
+     * @param $city_name
+     * @return City
+     */
     public function setCityName($city_name)
     {
-        // TODO: Implement setCityName() method.
+        return $this->setData('city_name', $city_name);
     }
 
+    /**
+     * @param $ref
+     * @return City
+     */
     public function setRef($ref)
     {
-        // TODO: Implement setRef() method.
+        return $this->setData('ref', $ref);
     }
 
 }

@@ -6,16 +6,16 @@
  * Time: 22:21
  */
 
-namespace Vaimo\NovaPoshta\Model\ResourceModel\City;
+namespace Vaimo\NovaPoshta\Model\ResourceModel\Warehouse;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
-use Vaimo\NovaPoshta\Model\City;
-use Vaimo\NovaPoshta\Model\ResourceModel\City as GridResource;
+use Vaimo\NovaPoshta\Model\Warehouse;
+use Vaimo\NovaPoshta\Model\ResourceModel\Warehouse as WarehouseResource;
 
 /**
  * Class Collection
- * @package Vaimo\NovaPoshta\Model\ResourceModel\City
+ * @package Vaimo\NovaPoshta\Model\ResourceModel\Warehouse
  */
 class Collection extends AbstractCollection
 {
@@ -24,6 +24,6 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init(City::class, GridResource::class);
+        $this->_init(Warehouse::class, WarehouseResource::class);
     }
 }

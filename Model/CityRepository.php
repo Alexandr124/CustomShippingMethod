@@ -10,16 +10,43 @@ use Vaimo\NovaPoshta\Model\ResourceModel\City as CityResource;
 use Vaimo\NovaPoshta\Model\ResourceModel\City\Collection;
 use Vaimo\NovaPoshta\Model\ResourceModel\City\CollectionFactory;
 
+/**
+ * Class CityRepository
+ * @package Vaimo\NovaPoshta\Model
+ */
 class CityRepository implements CityRepositoryInterface
 {
 
+    /**
+     * @var CityResource
+     */
     private $cityResource;
+    /**
+     * @var \Vaimo\QuoteModule\Model\ResourceModel\Quote
+     */
     protected $resourceModel;
+    /**
+     * @var CityFactory
+     */
     private $cityFactory;
+    /**
+     * @var Collection
+     */
     private $citycollection;
 
+    /**
+     * @var CollectionFactory
+     */
     private $collectionFactory;
 
+    /**
+     * CityRepository constructor.
+     * @param CityResource $cityResource
+     * @param CityFactory $cityFactory
+     * @param CollectionFactory $collectionFactory
+     * @param Collection $citycollection
+     * @param \Vaimo\QuoteModule\Model\ResourceModel\Quote $resourceModel
+     */
     public function __construct(
         CityResource $cityResource,
         CityFactory $cityFactory,
@@ -36,6 +63,11 @@ class CityRepository implements CityRepositoryInterface
     }
 
 
+    /**
+     * @param CityInterface $city
+     * @return CityInterface
+     * @throws \Magento\Framework\Exception\CouldNotSaveException
+     */
     public function save(\Vaimo\NovaPoshta\Model\CityInterface $city)
     {
         try {
@@ -47,6 +79,10 @@ class CityRepository implements CityRepositoryInterface
     }
 
 
+    /**
+     * @param $id
+     * @return City
+     */
     public function getById($id)
     {
         $city = $this->cityFactory->create();
@@ -57,6 +93,9 @@ class CityRepository implements CityRepositoryInterface
         return $city;
     }
 
+    /**
+     * @return array
+     */
     public function getCollection(){
 
         $collection =  $this->citycollection->getData();

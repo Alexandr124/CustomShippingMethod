@@ -11,16 +11,16 @@ namespace Vaimo\NovaPoshta\Model\ResourceModel;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 /**
- * Class City
+ * Class Warehouse
  * @package Vaimo\NovaPoshta\Model\ResourceModel
  */
-class City extends AbstractDb
+class Warehouse extends AbstractDb
 {
     /**
      *
      */
     protected function _construct()
     {
-        $this->_init('vaimo_novaposhta_cities', 'city_id');
+        $this->_init('vaimo_novaposhta_warehouses', 'warehouse_id');
     }
 }

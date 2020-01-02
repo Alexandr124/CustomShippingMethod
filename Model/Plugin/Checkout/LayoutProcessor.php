@@ -5,6 +5,10 @@ namespace Vaimo\NovaPoshta\Model\Plugin\Checkout;
 
 use Vaimo\NovaPoshta\Model\CityRepository;
 
+/** AN OLD LP. WE ARE NOT USING IT FOR THIS MOMENT. CHECK "LayoutProcessorPlugin"
+ * Class LayoutProcessor
+ * @package Vaimo\NovaPoshta\Model\Plugin\Checkout
+ */
 class LayoutProcessor
 {
     /**
@@ -14,12 +18,20 @@ class LayoutProcessor
      */
     public $repository;
 
+    /**
+     * LayoutProcessor constructor.
+     * @param CityRepository $repository
+     */
     public function __construct(
         CityRepository $repository
     ) {
      $this->repository = $repository;
     }
 
+    /**
+     * @param $result
+     * @return mixed
+     */
     public function process($result)
     {
         $result = $this->getShippingFormFields($result);
@@ -27,6 +39,10 @@ class LayoutProcessor
         return $result;
     }
 
+    /**
+     * @param string $addressType
+     * @return array
+     */
     public function getAdditionalFields($addressType = 'shipping')
     {
         if ($addressType == 'shipping') {
@@ -35,6 +51,10 @@ class LayoutProcessor
         return ['novaposhta_warehouse'];
     }
 
+    /**
+     * @param $result
+     * @return mixed
+     */
     public function getShippingFormFields($result)
     {
         if (isset($result['components']['checkout']['children']['steps']['children']
@@ -64,6 +84,10 @@ class LayoutProcessor
         return $result;
     }
 
+    /**
+     * @param $result
+     * @return mixed
+     */
     public function getBillingFormFields($result)
     {
         if (isset($result['components']['checkout']['children']['steps']['children']
@@ -99,6 +123,11 @@ class LayoutProcessor
         return $result;
     }
 
+    /**
+     * @param $scope
+     * @param $addressType
+     * @return array
+     */
     public function getFields($scope, $addressType)
     {
         $fields = [];
@@ -108,6 +137,11 @@ class LayoutProcessor
         return $fields;
     }
 
+    /**
+     * @param $attributeCode
+     * @param $scope
+     * @return array
+     */
     public function getField($attributeCode, $scope)
     {
         $field = [
@@ -121,6 +155,11 @@ class LayoutProcessor
     }
 
 
+    /**
+     * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
+     * @param array $jsLayout
+     * @return array
+     */
     public function afterProcess(
         \Magento\Checkout\Block\Checkout\LayoutProcessor $subject,
         array  $jsLayout
@@ -187,27 +226,24 @@ class LayoutProcessor
             'options' =>  $allOptions
         ];
 
-//        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-//        ['shippingAddress']['children']['shipping-address-fieldset']['children']['city'] = [
-//            'component' => 'Magento_Ui/js/form/element/select',
-//            'config' => [
-//                'customScope' => 'shippingAddress',
-//                'template' => 'ui/form/field',
-//                'elementTmpl' => 'ui/form/element/input',
-//                'id' => 'city',
-//            ],
-//            'dataScope' => 'shippingAddress.city',
-//            'label' => 'City',
-//            'provider' => 'checkoutProvider',
-//            'visible' => true,
-//            'validation' => [],
-//            'sortOrder' => 24,
-//            'id' => 'novaposhta_cities',
-//            'options' =>  $allOptions
-//        ];
-
-
-
+        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+        ['shippingAddress']['children']['shipping-address-fieldset']['children']['city'] = [
+            'component' => 'Magento_Ui/js/form/element/select',
+            'config' => [
+                'customScope' => 'shippingAddress',
+                'template' => 'ui/form/field',
+                'elementTmpl' => 'ui/form/element/input',
+                'id' => 'city',
+            ],
+            'dataScope' => 'shippingAddress.city',
+            'label' => 'City',
+            'provider' => 'checkoutProvider',
+            'visible' => true,
+            'validation' => [],
+            'sortOrder' => 24,
+            'id' => 'novaposhta_cities',
+            'options' =>  $allOptions
+        ];
 
         return $jsLayout;
     }
