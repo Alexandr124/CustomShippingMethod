@@ -22,6 +22,7 @@ class LayoutProcessorPlugin
      * @var WarehouseRepository
      */
     protected $warehouseRepository;
+    protected $allOptions=[];
 
     /**
      * LayoutProcessorPlugin constructor.
@@ -46,6 +47,9 @@ class LayoutProcessorPlugin
        array $jsLayout
    ) {
 
+       $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
+       ['shippingAddress']['component']='Vaimo_NovaPoshta/js/shipping/main';
+
        $validation['required-entry'] = true;
 
        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
@@ -63,6 +67,11 @@ class LayoutProcessorPlugin
            'caption' => 'Please select city',
            'provider' => 'checkoutProvider',
            'visible' => true,
+           'filterOptions' => true,
+           'showCheckbox' => true,
+           'chipsEnabled' => true,
+           'disableLabel' => true,
+           'multiple' => false,
            'validation' => $validation,
            'sortOrder' => 2,
            'id' => 'custom_shipping_field[novaposhta_city_custom_field]'
@@ -71,7 +80,7 @@ class LayoutProcessorPlugin
 
        $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
        ['shippingAddress']['children']['custom-shipping-method-fields']['children']['novaposhta_warehouse_custom_field'] = [
-           'component' => "Magento_Ui/js/form/element/select",
+           'component' => 'Vaimo_NovaPoshta/js/shipping/warehouse',
            'config' => [
                'customScope' => 'customShippingMethodFields',
                'template' => 'ui/form/field',
@@ -80,7 +89,7 @@ class LayoutProcessorPlugin
            ],
            'dataScope' => 'customShippingMethodFields.custom_shipping_field[novaposhta_warehouse_custom_field]',
            'label' => "NovaPoshta Warehouse",
-           'options' => $this->getWarehouses(),
+       //    'options' => $this->getWarehouses(),
            'provider' => 'checkoutProvider',
            'visible' => true,
            'validation' => [],
@@ -88,9 +97,7 @@ class LayoutProcessorPlugin
            'id' => 'custom_shipping_field[novaposhta_warehouse_custom_field]'
        ];
 
-//       $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-//       ['shippingAddress']['children']['custom-shipping-method-fields']['children']['novaposhta_warehouse_custom_field']
-//       ['config']['elementTmpl'] = "Vaimo_NovaPoshta/shipping/warehouse";
+
 
 
        return $jsLayout;
@@ -104,6 +111,8 @@ class LayoutProcessorPlugin
     {
        $amount = $this->repository->getCollection();
 
+       $allOptions = [];
+
        for($i=0; $i<count($amount); $i++){
 
            $opt_val['value'] = $amount[$i]["city_name"];
@@ -112,7 +121,7 @@ class LayoutProcessorPlugin
            $allOptions[] = $opt_val;
        }
 
-       return $allOptions;
+        return $allOptions;
 
    }
 
@@ -123,6 +132,21 @@ class LayoutProcessorPlugin
     protected function getWarehouses()
     {
         $amount = $this->warehouseRepository->getCollection();
+
+
+        if (isset($_GET["w1"]) && isset($_GET["w2"])) {
+      // Put the two words together with a space in the middle to form "hello world"
+      $hello = $_GET["w1"] . " " . $_GET["w2"];
+
+
+      // Print out some JavaScript with $hello stuck in there which will put "hello world" into the javascript.
+
+      echo "<script language='text/javascript'>function sayHiFromPHP() { alert('Just wanted to say $hello!'); }</script>";
+
+   }
+
+
+        $allOptions = [];
 
         for($i=0; $i<count($amount); $i++){
 

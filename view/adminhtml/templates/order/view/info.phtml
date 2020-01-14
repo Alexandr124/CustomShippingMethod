@@ -185,8 +185,15 @@ $allowedAddressHtmlTags = ['b', 'br', 'em', 'i', 'li', 'ol', 'p', 'strong', 'sub
                     <div class="actions"><?= /* @noEscape */ $block->getAddressEditLink($order->getShippingAddress()); ?></div>
                 </div>
                 <address class="admin__page-section-item-content"><?= $block->escapeHtml($block->getFormattedAddress($order->getShippingAddress()), $allowedAddressHtmlTags); ?></address>
-                <?php $blockObj= $block->getLayout()->createBlock('Vaimo\NovaPoshta\Block\Adminhtml\Order\View\AddressInfo');?>
-                <h1><?php echo $blockObj->showCity()?></h1>
+                <?php $blockObj= $block->getLayout()->createBlock('Vaimo\NovaPoshta\Block\Adminhtml\Order\View\AddressInfo');
+                    if($blockObj->showCity() != null){
+                        echo "NewPost delivery address: "; echo "<br>";
+                        echo $blockObj->showCity(); echo "<br>";
+                        echo $blockObj->showWarehouse();
+                    }
+               ?>
+<!--                <p>--><?php //echo $blockObj->showCity()?><!--</p>-->
+<!--                <p>--><?php //echo $blockObj->showWarehouse()?><!--</p>-->
             </div>
         <?php endif; ?>
     </div>
